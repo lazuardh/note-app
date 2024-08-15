@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import ButtonAction from "../components/ButtonAction";
 import { IoMdAdd } from "react-icons/io";
+import PropTypes from "prop-types";
 
 function NotePageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -71,6 +72,12 @@ class NotePage extends React.Component {
       </div>
     );
   }
+}
+
+NotePage.prototypes = {
+  change:PropTypes.func.isRequired,
+  defaultKeyword: PropTypes.string.isRequired,
+  onAddButtonHandler: PropTypes.func.isRequired,
 }
 
 export default NotePageWrapper;

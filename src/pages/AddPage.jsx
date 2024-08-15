@@ -4,6 +4,7 @@ import ButtonAction from "../components/ButtonAction"
 import { useNavigate } from "react-router-dom";
 import { addNote } from "../utils/local-data";
 import { FiCheck } from "react-icons/fi";
+import PropTypes from "prop-types";
 
 function AddPageWrapper() {
   const navigate = useNavigate();
@@ -63,6 +64,10 @@ class AddPage extends React.Component {
       </section>
     );
   }
+}
+
+AddPage.prototypes = {
+  onSaveNoteHandler: PropTypes.func.isRequired,
 }
 
 export default AddPageWrapper;

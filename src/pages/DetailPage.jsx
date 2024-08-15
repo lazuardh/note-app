@@ -4,6 +4,7 @@ import { getNote, deleteNote } from "../utils/local-data";
 import NoteDetail from "../components/NoteDetail";
 import ButtonAction from "../components/ButtonAction";
 import { FcFullTrash } from "react-icons/fc";
+import PropTypes from "prop-types";
 
 function DetailPageWrapper() {
   const { id } = useParams();
@@ -49,6 +50,11 @@ class DetailPage extends React.Component {
       </section>
     );
   }
+}
+
+DetailPage.prototypes = {
+  id: PropTypes.string.isRequired,
+  onRemoveHandler: PropTypes.func.isRequired,
 }
 
 export default DetailPageWrapper;

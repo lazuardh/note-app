@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function NoteInput({ state, onTitleInput, onBodyInput, initialBodyEdit }) {
   return (
@@ -22,6 +23,13 @@ function NoteInput({ state, onTitleInput, onBodyInput, initialBodyEdit }) {
       </div>
     </div>
   );
+}
+
+NoteInput.prototypes = {
+  state: PropTypes.object.isRequired,
+  onTitleInput: PropTypes.func.isRequired,
+  onBodyInput: PropTypes.func.isRequired,
+  initialBodyEdit: PropTypes.string.isRequired,
 }
 
 export default NoteInput;
