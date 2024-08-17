@@ -84,7 +84,7 @@ class NotePage extends React.Component {
   }
 }
 
-NotePage.prototypes = {
+NotePage.propTypes = {
   change:PropTypes.func.isRequired,
   defaultKeyword: PropTypes.string.isRequired,
   onAddButtonHandler: PropTypes.func.isRequired,
