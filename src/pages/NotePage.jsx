@@ -1,11 +1,11 @@
 import React from "react";
-import { getAllNotes } from "../utils/local-data";
 import NoteList from "../components/NoteList";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import ButtonAction from "../components/ButtonAction";
 import { IoMdAdd } from "react-icons/io";
 import PropTypes from "prop-types";
+import {getActiveNotes} from "../utils/network-data";
 
 function NotePageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,11 +35,21 @@ class NotePage extends React.Component {
     super(props);
 
     this.state = {
-      notes: getAllNotes(),
+      notes: [],
       keyword: props.defaultKeyword || "",
     };
 
     this.onSearch = this.onSearch.bind(this);
+  }
+
+  async componentDidMount() {
+    const { data } = await getActiveNotes();
+
+    this.setState(()=> {
+      return {
+        notes: data,
+      }
+    });
   }
 
   onSearch(event) {

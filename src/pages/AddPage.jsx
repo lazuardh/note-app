@@ -2,15 +2,15 @@ import React from "react";
 import NoteInput from "../components/NoteInput";
 import ButtonAction from "../components/ButtonAction"
 import { useNavigate } from "react-router-dom";
-import { addNote } from "../utils/local-data";
+import { addNote } from "../utils/network-data";
 import { FiCheck } from "react-icons/fi";
 import PropTypes from "prop-types";
 
 function AddPageWrapper() {
   const navigate = useNavigate();
 
-  function saveNoteHandler(note) {
-    addNote(note);
+  async function saveNoteHandler(note) {
+    await addNote(note);
     navigate('/');
   }
 

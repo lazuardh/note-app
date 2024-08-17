@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getNote, deleteNote } from "../utils/local-data";
+import { getNote, deleteNote } from "../utils/network-data";
 import NoteDetail from "../components/NoteDetail";
 import ButtonAction from "../components/ButtonAction";
 import { FcFullTrash } from "react-icons/fc";
@@ -11,8 +11,8 @@ function DetailPageWrapper() {
 
   const navigate = useNavigate();
 
-  function removeNoteHandler() {
-    deleteNote(id);
+  async function removeNoteHandler() {
+    await deleteNote(id);
     navigate("/");
   }
 
@@ -24,10 +24,18 @@ class DetailPage extends React.Component {
     super(props);
 
     this.state = {
-      note: getNote(props.id),
+      note: {},
     };
 
     this.onDeleteNoteHandler = this.onDeleteNoteHandler.bind(this);
+  }
+
+  async componentDidMount() {
+    const { id } = this.props;
+    const response = await getNote(id);
+    if (!response.error) {
+      this.setState({ note: response.data });
+    }
   }
 
   onDeleteNoteHandler() {
@@ -52,7 +60,7 @@ class DetailPage extends React.Component {
   }
 }
 
-DetailPage.prototypes = {
+DetailPage.propTypes = {
   id: PropTypes.string.isRequired,
   onRemoveHandler: PropTypes.func.isRequired,
 }

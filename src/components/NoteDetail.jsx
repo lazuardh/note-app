@@ -1,4 +1,4 @@
-import {showFormattedDate} from '../utils/index'
+import {showFormattedDate} from '../utils/index';
 import PropTypes from 'prop-types';
 
 function NoteDetail({title, body, createdAt}) {
