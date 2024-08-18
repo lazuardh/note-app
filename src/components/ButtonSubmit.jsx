@@ -1,5 +1,5 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 
 function ButtonSubmit({ title, onClick }) {
   return (
@@ -11,9 +11,9 @@ function ButtonSubmit({ title, onClick }) {
   );
 }
 
-ButtonSubmit.proptypes = {
-  title: Proptypes.string.isRequired,
-  onClick: Proptypes.func.isRequired,
+ButtonSubmit.propTypes = {
+  title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ButtonSubmit;

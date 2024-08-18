@@ -24,6 +24,7 @@ class AddPage extends React.Component {
     this.state = {
       title: "",
       body: "",
+      initialinitialBodyEdit: "",  
     };
 
     this.onTitleInputHandler = this.onTitleInputHandler.bind(this);
@@ -54,6 +55,7 @@ class AddPage extends React.Component {
           state={this.state}
           onTitleInput={this.onTitleInputHandler}
           onBodyInput={this.onBodyInputHandler}
+          initialBodyEdit={this.state.initialinitialBodyEdit}
         />
         <ButtonAction
           className="action"
@@ -66,7 +68,7 @@ class AddPage extends React.Component {
   }
 }
 
-AddPage.prototypes = {
+AddPage.propTypes = {
   onSaveNoteHandler: PropTypes.func.isRequired,
 }
 

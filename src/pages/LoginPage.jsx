@@ -52,9 +52,4 @@ function LoginPage() {
   );
 }
 
-LoginPage.proptypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-}
-
 export default LoginPage;

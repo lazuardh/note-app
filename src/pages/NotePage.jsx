@@ -10,7 +10,7 @@ import {getActiveNotes} from "../utils/network-data";
 function NotePageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const keyword = searchParams.get("keyword");
+  const keyword = searchParams.get("keyword") || "";
 
   function changeSearchParams(keyword) {
     setSearchParams({ keyword: keyword });
@@ -70,7 +70,7 @@ class NotePage extends React.Component {
       <div className="app-container">
         <h1 className="header">Aplikasi catatan</h1>
         <div className="main">
-          <SearchBar keyword={this.props.keyword} change={this.onSearch} />
+          <SearchBar keyword={this.state.keyword} change={this.onSearch} />
           <NoteList notes={note} />
         </div>
         <ButtonAction

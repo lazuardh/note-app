@@ -14,7 +14,7 @@ function SearchBar({ keyword, change }) {
   );
 }
 
-SearchBar.prototypes = {
+SearchBar.propTypes = {
     keyword: PropTypes.string.isRequired,
     change: PropTypes.func.isRequired,
 }

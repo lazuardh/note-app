@@ -19,8 +19,8 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   const themeContextValue = useMemo(() => {
-    theme, changeTheme;
-  }, [auth]);
+    theme, changeTheme
+  }, [theme]);
 
   const authContextValue = useMemo(
     () => ({
@@ -44,11 +44,12 @@ function App() {
         alert("error");
       });
 
-    if (localStorage.theme) {
-      changeTheme(localStorage.theme);
+    const saveTheme = localStorage.getItem('theme');
+    if (saveTheme) {
+      changeTheme(saveTheme);
     } else {
-      localStorage.setItem("theme", "light");
-      changeTheme("light");
+      localStorage.setItem("theme", 'dark');
+      changeTheme('dark');
     }
   }, []);
 

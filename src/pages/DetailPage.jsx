@@ -24,7 +24,11 @@ class DetailPage extends React.Component {
     super(props);
 
     this.state = {
-      note: {},
+      note: {
+        title: '',
+        body: '',
+        createdAt: '',
+      },
     };
 
     this.onDeleteNoteHandler = this.onDeleteNoteHandler.bind(this);

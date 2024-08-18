@@ -11,7 +11,7 @@ function NoteDetail({title, body, createdAt}) {
     )
   }
 
-NoteDetail.prototypes = {
+NoteDetail.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,

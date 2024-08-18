@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 function useTheme() {
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = React.useState(()=> {
+        return localStorage.getItem('theme') || 'dark';
+    });
 
     const changeTheme = (value) => {
         setTheme(value);

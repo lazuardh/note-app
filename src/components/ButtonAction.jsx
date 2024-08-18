@@ -9,7 +9,7 @@ function ButtonAction({ title, onClick, icon}) {
     );
 }
 
-ButtonAction.prototypes = {
+ButtonAction.propTypes = {
     title: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     icon: PropTypes.object.isRequired,
